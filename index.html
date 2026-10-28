@@ -1,22 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Chargebee Plans</title>
+    <title>BookNest | Your Online Bookstore</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6fb;
-            text-align: center;
-            margin: 0;
-            padding: 40px 20px;
+        * {
+            box-sizing: border-box;
         }
 
-        h1 {
-            color: #252545;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #faf8f3;
+            color: #302c28;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #70452c;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #302c28;
+            margin-left: 20px;
+        }
+
+        .hero {
+            background: #eee1d0;
+            padding: 65px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #65594f;
+        }
+
+        .button {
+            display: inline-block;
+            background: #70452c;
+            color: white;
+            padding: 13px 24px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        section {
+            padding: 45px 8%;
+            text-align: center;
+        }
+
+        .books {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .book {
+            background: white;
+            padding: 20px;
+            width: 220px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px #e7e1d8;
+        }
+
+        .book-cover {
+            background: #e9d7c3;
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            border-radius: 5px;
+        }
+
+        .book p {
+            color: #76685c;
         }
 
         .plans {
@@ -24,80 +108,244 @@
             justify-content: center;
             gap: 25px;
             flex-wrap: wrap;
-            margin-top: 40px;
         }
 
         .plan {
             background: white;
-            padding: 30px;
-            width: 220px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px #ddd;
+            width: 260px;
+            padding: 28px 22px;
+            border-radius: 10px;
+            border: 1px solid #e5ddd3;
+        }
+
+        .featured {
+            border: 2px solid #70452c;
         }
 
         .price {
-            font-size: 30px;
+            font-size: 32px;
             font-weight: bold;
-            color: #6554c0;
+            color: #70452c;
         }
 
-        button {
-            background: #6554c0;
+        .plan ul {
+            text-align: left;
+            line-height: 2;
+            padding-left: 22px;
+        }
+
+        .addon {
+            margin: 30px auto 0;
+            padding: 25px;
+            max-width: 500px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        footer {
+            background: #302c28;
             color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 6px;
-            cursor: pointer;
+            padding: 25px;
+            text-align: center;
         }
 
-        button:hover {
-            background: #4938a0;
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            header {
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 8px;
+                display: inline-block;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <h1>Choose Your Subscription Plan</h1>
+    <header>
+        <div class="logo">📚 BookNest</div>
 
-    <p>Find the right plan for your business.</p>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#books">Books</a>
+            <a href="#plans">Membership</a>
+        </nav>
+    </header>
 
-    <div class="plans">
+    <section class="hero" id="home">
 
-        <div class="plan">
-            <h2>Go</h2>
-            <p class="price">$99</p>
-            <p>per month</p>
-            <button onclick="selectPlan('Go')">
-                Choose Go
-            </button>
+        <h1>A World of Stories Awaits</h1>
+
+        <p>
+            Discover your next favourite book
+            and become part of our reading community.
+        </p>
+
+        <a href="#books" class="button">Explore Books</a>
+
+        <a href="#plans" class="button">View Membership Plans</a>
+
+    </section>
+
+    <section id="books">
+
+        <h2>Featured Books</h2>
+
+        <p>Discover something new to read today.</p>
+
+        <div class="books">
+
+            <div class="book">
+                <div class="book-cover">📖</div>
+                <h3>The Silent Library</h3>
+                <p>Mystery</p>
+                <strong>$15</strong>
+            </div>
+
+            <div class="book">
+                <div class="book-cover">🌿</div>
+                <h3>Growing Every Day</h3>
+                <p>Personal Development</p>
+                <strong>$20</strong>
+            </div>
+
+            <div class="book">
+                <div class="book-cover">✨</div>
+                <h3>Beyond the Stars</h3>
+                <p>Fantasy</p>
+                <strong>$18</strong>
+            </div>
+
         </div>
 
-        <div class="plan">
-            <h2>Rise</h2>
-            <p class="price">$299</p>
-            <p>per month</p>
-            <button onclick="selectPlan('Rise')">
-                Choose Rise
-            </button>
+    </section>
+
+    <section id="plans">
+
+        <h2>BookNest Membership</h2>
+
+        <p>
+            Choose a membership to access more
+            books and exclusive reading benefits.
+        </p>
+
+        <div class="plans">
+
+            <div class="plan">
+
+                <h3>Go</h3>
+
+                <div class="price">$99</div>
+
+                <p>per month</p>
+
+                <ul>
+                    <li>Access to selected books</li>
+                    <li>Member reading lists</li>
+                    <li>Monthly recommendations</li>
+                </ul>
+
+                <button class="button"
+                    onclick="selectPlan('Go')">
+                    Choose Go
+                </button>
+
+            </div>
+
+            <div class="plan featured">
+
+                <h3>Rise</h3>
+
+                <div class="price">$299</div>
+
+                <p>per month</p>
+
+                <ul>
+                    <li>Access to more books</li>
+                    <li>Exclusive reading lists</li>
+                    <li>Priority recommendations</li>
+                </ul>
+
+                <button class="button"
+                    onclick="selectPlan('Rise')">
+                    Choose Rise
+                </button>
+
+            </div>
+
+            <div class="plan">
+
+                <h3>Scale</h3>
+
+                <div class="price">$599</div>
+
+                <p>per month</p>
+
+                <ul>
+                    <li>Full digital library access</li>
+                    <li>Exclusive member content</li>
+                    <li>VIP reading benefits</li>
+                </ul>
+
+                <button class="button"
+                    onclick="selectPlan('Scale')">
+                    Choose Scale
+                </button>
+
+            </div>
+
         </div>
 
-        <div class="plan">
-            <h2>Scale</h2>
-            <p class="price">$599</p>
-            <p>per month</p>
-            <button onclick="selectPlan('Scale')">
-                Choose Scale
-            </button>
+        <div class="addon">
+
+            <h3>RevenueStory Add-on</h3>
+
+            <p>
+                Add RevenueStory to your membership
+                for additional business insights.
+            </p>
+
+            <p>
+                Go: +$50/month<br>
+                Rise: +$125/month<br>
+                Scale: +$220/month
+            </p>
+
+            <p>
+                Select a membership above to explore
+                the corresponding bundle.
+            </p>
+
         </div>
 
-    </div>
+    </section>
+
+    <footer>
+        <p>© 2026 BookNest | A World of Stories Awaits</p>
+    </footer>
 
     <script>
-        function selectPlan(plan) {
-            alert("You selected the " + plan + " plan!");
+
+        function selectPlan(planName) {
+
+            alert(
+                "You selected the " +
+                planName +
+                " membership. Chargebee Checkout will be integrated here."
+            );
+
+            console.log("Selected membership:", planName);
+
         }
+
     </script>
 
 </body>
+
 </html>
