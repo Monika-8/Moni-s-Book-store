@@ -5,25 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Chargebee Plans</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fb;
+            text-align: center;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            color: #252545;
+        }
+
+        .plans {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .plan {
+            background: white;
+            padding: 30px;
+            width: 220px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #ddd;
+        }
+
+        .price {
+            font-size: 30px;
+            font-weight: bold;
+            color: #6554c0;
+        }
+
+        button {
+            background: #6554c0;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4938a0;
+        }
+    </style>
 </head>
 
 <body>
 
     <h1>Choose Your Subscription Plan</h1>
 
-    <p>Select a plan that suits your business.</p>
+    <p>Find the right plan for your business.</p>
 
-    <h2>Go Plan</h2>
-    <p>$99/month</p>
-    <button>Choose Go</button>
+    <div class="plans">
 
-    <h2>Rise Plan</h2>
-    <p>$299/month</p>
-    <button>Choose Rise</button>
+        <div class="plan">
+            <h2>Go</h2>
+            <p class="price">$99</p>
+            <p>per month</p>
+            <button onclick="selectPlan('Go')">
+                Choose Go
+            </button>
+        </div>
 
-    <h2>Scale Plan</h2>
-    <p>$599/month</p>
-    <button>Choose Scale</button>
+        <div class="plan">
+            <h2>Rise</h2>
+            <p class="price">$299</p>
+            <p>per month</p>
+            <button onclick="selectPlan('Rise')">
+                Choose Rise
+            </button>
+        </div>
+
+        <div class="plan">
+            <h2>Scale</h2>
+            <p class="price">$599</p>
+            <p>per month</p>
+            <button onclick="selectPlan('Scale')">
+                Choose Scale
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        function selectPlan(plan) {
+            alert("You selected the " + plan + " plan!");
+        }
+    </script>
 
 </body>
 </html>
