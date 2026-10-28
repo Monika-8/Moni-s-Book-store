@@ -333,14 +333,51 @@
     <script>
 
         function selectPlan(planName) {
+<script>
+    const plans = {
+        Go: {
+            price: 99,
+            revenueStory: 50
+        },
+        Rise: {
+            price: 299,
+            revenueStory: 125
+        },
+        Scale: {
+            price: 599,
+            revenueStory: 220
+        }
+    };
 
-            alert(
-                "You selected the " +
-                planName +
-                " membership. Chargebee Checkout will be integrated here."
-            );
+    function selectPlan(planName) {
+        const plan = plans[planName];
 
-            console.log("Selected membership:", planName);
+        const addOn = confirm(
+            "Add RevenueStory for $" +
+            plan.revenueStory +
+            " per month?"
+        );
+
+        let total = plan.price;
+
+        if (addOn) {
+            total += plan.revenueStory;
+        }
+
+        alert(
+            "Selected plan: " + planName +
+            "\nRevenueStory: " + (addOn ? "Yes" : "No") +
+            "\nMonthly total: $" + total
+        );
+
+        console.log({
+            plan: planName,
+            basePrice: plan.price,
+            revenueStorySelected: addOn,
+            monthlyTotal: total
+        });
+    }
+</script>
 
         }
 
