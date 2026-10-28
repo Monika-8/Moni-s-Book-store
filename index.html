@@ -1,45 +1,434 @@
-<script>
-    const plans = {
-        Go: {
-            price: 99,
-            revenueStory: 50
-        },
-        Rise: {
-            price: 299,
-            revenueStory: 125
-        },
-        Scale: {
-            price: 599,
-            revenueStory: 220
-        }
-    };
 
-    function selectPlan(planName) {
-        const plan = plans[planName];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNest | Membership Plans</title>
 
-        const addOn = confirm(
-            "Add RevenueStory for $" +
-            plan.revenueStory +
-            " per month?"
-        );
-
-        let total = plan.price;
-
-        if (addOn) {
-            total += plan.revenueStory;
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        alert(
-            "Selected plan: " + planName +
-            "\nRevenueStory: " + (addOn ? "Yes" : "No") +
-            "\nMonthly total: $" + total + "/month"
-        );
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffaf3;
+            color: #3d3028;
+            line-height: 1.6;
+        }
 
-        console.log({
-            plan: planName,
-            basePrice: plan.price,
-            revenueStorySelected: addOn,
-            monthlyTotal: total
-        });
-    }
-</script>
+        header {
+            background-color: #5b3927;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #f5d5a5;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            background-color: #f3e3d2;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #8b5e3c;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 15px;
+            margin-top: 15px;
+        }
+
+        .button:hover {
+            background-color: #68432b;
+        }
+
+        section {
+            padding: 55px 8%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            color: #74665d;
+            margin-bottom: 30px;
+        }
+
+        .book-container,
+        .plan-container,
+        .addon-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .book-card,
+        .plan-card,
+        .addon-card {
+            background-color: white;
+            padding: 28px 22px;
+            border-radius: 12px;
+            border: 1px solid #eaded2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .book-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .book-card h3,
+        .plan-card h3,
+        .addon-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #8b5e3c;
+            margin: 15px 0;
+        }
+
+        .plan-card ul {
+            list-style: none;
+            margin-top: 18px;
+        }
+
+        .plan-card li {
+            margin: 8px 0;
+        }
+
+        .featured {
+            border: 2px solid #8b5e3c;
+            transform: translateY(-5px);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #f3e3d2;
+            color: #68432b;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .addon-section {
+            background-color: #f8eee3;
+        }
+
+        .addon-card p {
+            margin-top: 8px;
+        }
+
+        footer {
+            background-color: #5b3927;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .book-container,
+            .plan-container,
+            .addon-container {
+                grid-template-columns: 1fr;
+            }
+
+            .featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">📚 BookNest</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#books">Books</a>
+            <a href="#membership">Membership</a>
+        </nav>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero" id="home">
+        <h1>A World of Stories Awaits</h1>
+
+        <p>
+            Discover your next favourite book and unlock more
+            with a BookNest membership.
+        </p>
+
+        <a href="#books" class="button">Explore Books</a>
+        <a href="#membership" class="button">View Membership Plans</a>
+    </section>
+
+    <!-- Featured books -->
+    <section id="books">
+        <h2>Featured Books</h2>
+
+        <p class="section-description">
+            Find inspiration, knowledge, and adventure in every page.
+        </p>
+
+        <div class="book-container">
+
+            <div class="book-card">
+                <div class="book-icon">📘</div>
+                <h3>The Silent Library</h3>
+                <p>A mystery waiting to be uncovered.</p>
+                <div class="price">$15</div>
+                <p>One-time purchase</p>
+            </div>
+
+            <div class="book-card">
+                <div class="book-icon">📗</div>
+                <h3>Growing Every Day</h3>
+                <p>A guide to personal growth and better habits.</p>
+                <div class="price">$20</div>
+                <p>One-time purchase</p>
+            </div>
+
+            <div class="book-card">
+                <div class="book-icon">📙</div>
+                <h3>Beyond the Stars</h3>
+                <p>An adventure through space and imagination.</p>
+                <div class="price">$18</div>
+                <p>One-time purchase</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Membership plans -->
+    <section id="membership">
+        <h2>Choose Your Membership</h2>
+
+        <p class="section-description">
+            Select the plan that works best for you.
+            All plans are billed monthly.
+        </p>
+
+        <div class="plan-container">
+
+            <!-- Go plan -->
+            <div class="plan-card">
+                <h3>Go</h3>
+
+                <div class="price">$99<span style="font-size: 15px;">/month</span></div>
+
+                <p>Perfect for getting started.</p>
+
+                <ul>
+                    <li>✓ Access to member content</li>
+                    <li>✓ Monthly reading recommendations</li>
+                    <li>✓ Standard support</li>
+                </ul>
+
+                <button class="button" onclick="selectPlan('Go')">
+                    Choose Go
+                </button>
+            </div>
+
+            <!-- Rise plan -->
+            <div class="plan-card featured">
+                <span class="badge">POPULAR</span>
+
+                <h3>Rise</h3>
+
+                <div class="price">$299<span style="font-size: 15px;">/month</span></div>
+
+                <p>For readers who want more.</p>
+
+                <ul>
+                    <li>✓ Everything in Go</li>
+                    <li>✓ Premium reading collections</li>
+                    <li>✓ Priority support</li>
+                </ul>
+
+                <button class="button" onclick="selectPlan('Rise')">
+                    Choose Rise
+                </button>
+            </div>
+
+            <!-- Scale plan -->
+            <div class="plan-card">
+                <h3>Scale</h3>
+
+                <div class="price">$599<span style="font-size: 15px;">/month</span></div>
+
+                <p>The complete BookNest experience.</p>
+
+                <ul>
+                    <li>✓ Everything in Rise</li>
+                    <li>✓ Exclusive content</li>
+                    <li>✓ Dedicated support</li>
+                </ul>
+
+                <button class="button" onclick="selectPlan('Scale')">
+                    Choose Scale
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- RevenueStory add-on -->
+    <section class="addon-section" id="revenueStory">
+        <h2>Enhance Your Membership with RevenueStory</h2>
+
+        <p class="section-description">
+            Add RevenueStory to your membership for an additional
+            monthly fee based on your selected plan.
+        </p>
+
+        <div class="addon-container">
+
+            <div class="addon-card">
+                <h3>Go + RevenueStory</h3>
+                <div class="price">+$50/month</div>
+                <p>Go membership with RevenueStory.</p>
+            </div>
+
+            <div class="addon-card">
+                <h3>Rise + RevenueStory</h3>
+                <div class="price">+$125/month</div>
+                <p>Rise membership with RevenueStory.</p>
+            </div>
+
+            <div class="addon-card">
+                <h3>Scale + RevenueStory</h3>
+                <div class="price">+$220/month</div>
+                <p>Scale membership with RevenueStory.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 BookNest. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const plans = {
+            Go: {
+                price: 99,
+                revenueStory: 50
+            },
+
+            Rise: {
+                price: 299,
+                revenueStory: 125
+            },
+
+            Scale: {
+                price: 599,
+                revenueStory: 220
+            }
+        };
+
+        function selectPlan(planName) {
+            const plan = plans[planName];
+
+            if (!plan) {
+                alert("Invalid membership plan selected.");
+                return;
+            }
+
+            const addOn = confirm(
+                "You selected the " + planName + " plan.\n\n" +
+                "Would you like to add RevenueStory for $" +
+                plan.revenueStory + " per month?"
+            );
+
+            let total = plan.price;
+
+            if (addOn) {
+                total += plan.revenueStory;
+            }
+
+            alert(
+                "Membership Summary\n\n" +
+                "Plan: " + planName + "\n" +
+                "Base price: $" + plan.price + "/month\n" +
+                "RevenueStory: " +
+                (addOn
+                    ? "$" + plan.revenueStory + "/month"
+                    : "Not selected") +
+                "\n\nMonthly total: $" + total
+            );
+
+            console.log({
+                plan: planName,
+                basePrice: plan.price,
+                revenueStorySelected: addOn,
+                revenueStoryPrice: addOn ? plan.revenueStory : 0,
+                monthlyTotal: total
+            });
+        }
+    </script>
+
+</body>
+</html>
