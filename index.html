@@ -1,310 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>CloudDesk ITSM</title>
-
-    <script src="https://js.chargebee.com/v2/chargebee.js"
-        data-cb-site="YOUR_TEST_SITE">
-    </script>
-
+<html>
+  <head>
+    <title>CloudDesk</title>
+    <!-- Chargebee.js: replace YOUR-SITE-test with your own Chargebee site name -->
+    <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="YOUR-SITE-test"></script>
+    <script charset="utf-8" src="https://js.chargebee.com/assets/cbjs-2026.10.23-09.21/v2/620-eb691dd4a9705efbd2a6.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f7fb;
-            color: #333;
-        }
+      body {
+        font-family: Arial;
+        margin: 0;
+      }
 
-        header {
-            background-color: #173b65;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+      h1 {
+        background-color: darkblue;
+        color: white;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
 
-        nav {
-            background-color: #24558a;
-            padding: 12px;
-            text-align: center;
-        }
+      .box {
+        padding: 20px;
+        text-align: center;
+      }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 15px;
-        }
+      .plan {
+        border: 1px solid gray;
+        width: 200px;
+        display: inline-block;
+        margin: 10px;
+        padding: 15px;
+      }
 
-        .hero {
-            background-color: #dcecff;
-            text-align: center;
-            padding: 50px 20px;
-        }
+      a.btn {
+        background-color: darkblue;
+        color: white;
+        padding: 8px 14px;
+        text-decoration: none;
+      }
 
-        .hero h1 {
-            color: #173b65;
-            font-size: 36px;
-        }
-
-        .hero p {
-            font-size: 18px;
-        }
-
-        .button {
-            display: inline-block;
-            background-color: #24558a;
-            color: white;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        .section {
-            padding: 30px 20px;
-            text-align: center;
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .card {
-            background-color: white;
-            padding: 20px;
-            width: 250px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px #ddd;
-        }
-
-        .card h3 {
-            color: #24558a;
-        }
-
-        .price {
-            font-size: 25px;
-            font-weight: bold;
-            color: #173b65;
-        }
-
-        .card ul {
-            text-align: left;
-            line-height: 1.8;
-        }
-
-        footer {
-            background-color: #173b65;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 30px;
-        }
+      p.footer {
+        background-color: lightgray;
+        text-align: center;
+        padding: 10px;
+        margin: 0;
+      }
     </style>
-
-</head>
-
-<body>
-
-    <header>
-        <h1>CloudDesk ITSM</h1>
-        <p>IT Support Made Simple!</p>
-    </header>
-
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#addons">Add-ons</a>
-        <a href="#account">My Account</a>
-    </nav>
-
-
-    <div class="hero" id="home">
-
-        <h1>Manage IT Support Easily</h1>
-
-        <p>
-            Manage service requests, automate IT workflows,
-            and improve your team's productivity with CloudDesk.
-        </p>
-
-        <a href="#pricing" class="button">Explore Plans</a>
-
+  </head>
+  <body>
+    <h1>CloudDesk</h1>
+    <div class="box">
+      <h2>Simple customer support software</h2>
+      <p>Manage all your customer tickets in one place.</p>
     </div>
-
-
-    <div class="section" id="features">
-
-        <h2>Our Features</h2>
-
-        <div class="container">
-
-            <div class="card">
-                <h3>Request Management</h3>
-                <p>
-                    Organise and track IT service requests
-                    in one place.
-                </p>
+    <div class="box">
+      <h2>Choose a Plan</h2>
+      <div class="plan">
+        <h3>Go</h3>
+        <p>$99 / month</p>
+        <p>For small teams</p>
+        <a href="javascript:void(0)" class="btn" data-cb-type="checkout" data-cb-item-0="go-plan-usd-monthly" data-cb-item-0-quantity="1">Subscribe</a>
+      </div>
+      <div class="plan">
+        <h3>Rise</h3>
+        <p>$299 / month</p>
+        <p>For growing teams</p>
+        <a href="javascript:void(0)" class="btn" data-cb-type="checkout" data-cb-item-0="rise-plan-usd-monthly" data-cb-item-0-quantity="1">Subscribe</a>
+      </div>
+      <div class="plan">
+        <h3>Scale</h3>
+        <p>$599 / month</p>
+        <p>For large teams</p>
+        <a href="javascript:void(0)" class="btn" data-cb-type="checkout" data-cb-item-0="scale-plan-usd-monthly" data-cb-item-0-quantity="1">Subscribe</a>
+      </div>
+    </div>
+    <div class="box">
+      <h2>Contact Us</h2>
+      <p>Email: support@clouddesk.example</p>
+    </div>
+    <p class="footer">2026 CloudDesk. All rights reserved.</p>
+    <div id="cb-container" style="position: fixed; inset: 0px; z-index: 2147483647; display: none; overflow-y: hidden;">
+      <div id="cb-loader" style="z-index: 99999; visibility: hidden; transition: 0.5s; background: rgb(244, 245, 249); position: absolute; left: 0px; right: 0px; box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 9px 0px, rgba(0, 0, 0, 0.15) 0px 20px 30px 1px, rgba(0, 0, 0, 0.15) 0px 40px 40px 1px;">
+        <div style="overflow: hidden;">
+          <div id="cb-loader-header" style="padding: 12px 40px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px; text-align: center; min-height: 64px; box-sizing: border-box;">
+            <div style="min-height: 46px; display: flex; align-items: center; margin-top: 1px;">
+              <img id="cb-header-logo" style="max-height: 40px; max-width: 240px; vertical-align: middle; width: auto; margin: 3px auto;">
             </div>
-
-            <div class="card">
-                <h3>Workflow Automation</h3>
-                <p>
-                    Automate repetitive tasks and
-                    save your team's time.
-                </p>
+          </div>
+          <div id="cb-loading-bar" style="height: 2px; background: rgb(72, 231, 154); transition-duration: 0.5s; transition-timing-function: ease-in-out; visibility: hidden;"></div>
+          <div style="padding: 24px 36px;">
+            <div class="cb-placeholder" id="cb-placeholder">
+              <div class="wavering" style="height: 20px; width: 100px; background: linear-gradient(to right, rgb(238, 238, 238) 8%, rgb(221, 221, 221) 18%, rgb(238, 238, 238) 33%) 0% 0% / 800px 104px; margin-bottom: 10px;"></div>
+              <div class="wavering" style="height: 40px; width: 200px; background: linear-gradient(to right, rgb(238, 238, 238) 8%, rgb(221, 221, 221) 18%, rgb(238, 238, 238) 33%) 0% 0% / 800px 104px; margin-bottom: 10px;"></div>
+              <div class="wavering" style="height: 10px; width: 150px; background: linear-gradient(to right, rgb(238, 238, 238) 8%, rgb(221, 221, 221) 18%, rgb(238, 238, 238) 33%) 0% 0% / 800px 104px; margin-bottom: 10px;"></div>
+              <div class="wavering" style="height: 10px; width: 150px; background: linear-gradient(to right, rgb(238, 238, 238) 8%, rgb(221, 221, 221) 18%, rgb(238, 238, 238) 33%) 0% 0% / 800px 104px; margin-bottom: 10px;"></div>
+              <div class="wavering" style="height: 10px; width: 150px; background: linear-gradient(to right, rgb(238, 238, 238) 8%, rgb(221, 221, 221) 18%, rgb(238, 238, 238) 33%) 0% 0% / 800px 104px; margin-bottom: 10px;"></div>
             </div>
-
-            <div class="card">
-                <h3>IT Insights</h3>
-                <p>
-                    View reports and understand
-                    your IT team's performance.
-                </p>
-            </div>
-
+            <div id="cb-error" style="font-size: 18px; line-height: 27px; color: rgb(248, 48, 48); text-align: center; display: none;"></div>
+          </div>
+          <div id="cb-modal-close" style="position: absolute; background: rgb(57, 57, 65); height: 24px; width: 24px; border-radius: 50%; right: -12px; top: -12px; font-size: 20px; color: rgba(255, 255, 255, 0.7); text-align: center; cursor: pointer; display: table; font-weight: 400; line-height: 24px;">×</div>
         </div>
-
+      </div>
+      <iframe id="cb-frame" style="width: 100%; height: 100%; z-index: 999999; visibility: hidden; position: relative; border: 0px;"></iframe>
+      <iframe id="cb-master-frame" name="cb-master-frame" src="https://js.chargebee.com/assets/cbjs-2026.10.23-09.21/v2/master.html?site=YOUR-SITE-test&amp;env=production#" style="margin: 0px; padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; overflow: hidden; display: block; min-width: 100%; width: 1px; height: 1.2em;"></iframe>
     </div>
-
-
-    <div class="section" id="pricing">
-
-        <h2>Choose Your Plan</h2>
-
-        <div class="container">
-
-            <div class="card">
-
-                <h3>Starter Plan</h3>
-
-                <p class="price">$49/month</p>
-
-                <p>Perfect for small IT teams.</p>
-
-                <ul>
-                    <li>Request Management</li>
-                    <li>Basic Reports</li>
-                    <li>Email Support</li>
-                </ul>
-
-                <a href="javascript:void(0)"
-                   class="button"
-                   data-cb-type="checkout"
-                   data-cb-item-0="Starter-USD-Monthly"
-                   data-cb-item-0-quantity="1">
-                    Subscribe Now
-                </a>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>Growth Plan</h3>
-
-                <p class="price">$149/month</p>
-
-                <p>Perfect for growing IT teams.</p>
-
-                <ul>
-                    <li>Everything in Starter</li>
-                    <li>Workflow Automation</li>
-                    <li>Advanced Reports</li>
-                </ul>
-
-                <a href="javascript:void(0)"
-                   class="button"
-                   data-cb-type="checkout"
-                   data-cb-item-0="Growth-USD-Monthly"
-                   data-cb-item-0-quantity="1">
-                    Subscribe Now
-                </a>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>Enterprise Plan</h3>
-
-                <p class="price">$399/month</p>
-
-                <p>Designed for large organisations.</p>
-
-                <ul>
-                    <li>Everything in Growth</li>
-                    <li>Advanced Automation</li>
-                    <li>Premium Support</li>
-                </ul>
-
-                <a href="javascript:void(0)"
-                   class="button"
-                   data-cb-type="checkout"
-                   data-cb-item-0="Enterprise-USD-Monthly"
-                   data-cb-item-0-quantity="1">
-                    Subscribe Now
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="section" id="addons">
-
-        <h2>Optional Add-ons</h2>
-
-        <div class="container">
-
-            <div class="card">
-                <h3>Advanced Analytics</h3>
-                <p class="price">$30/month</p>
-                <p>Get more insights from your IT data.</p>
-            </div>
-
-            <div class="card">
-                <h3>AI Automation Pack</h3>
-                <p class="price">$50/month</p>
-                <p>Automate repetitive tasks using AI.</p>
-            </div>
-
-            <div class="card">
-                <h3>Premium Support</h3>
-                <p class="price">$40/month</p>
-                <p>Get additional support for your team.</p>
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="section" id="account">
-
-        <h2>Manage Your Subscription</h2>
-
-        <p>View your subscription and manage your account.</p>
-
-        <a href="javascript:void(0)"
-           class="button"
-           data-cb-type="portal">
-            Manage My Account
-        </a>
-
-    </div>
-
-
-    <footer>
-        <p>Copyright 2026 CloudDesk ITSM</p>
-        <p>Making IT Support Simple and Efficient</p>
-    </footer>
-
-</body>
-
+  </body>
 </html>
