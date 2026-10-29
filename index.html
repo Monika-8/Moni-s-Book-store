@@ -5,98 +5,306 @@
     <title>CloudDesk ITSM</title>
 
     <script src="https://js.chargebee.com/v2/chargebee.js"
-    data-cb-site="YOUR_TEST_SITE"></script>
+        data-cb-site="YOUR_TEST_SITE">
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f7fb;
+            color: #333;
+        }
+
+        header {
+            background-color: #173b65;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #24558a;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        .hero {
+            background-color: #dcecff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            color: #173b65;
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #24558a;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .section {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #ddd;
+        }
+
+        .card h3 {
+            color: #24558a;
+        }
+
+        .price {
+            font-size: 25px;
+            font-weight: bold;
+            color: #173b65;
+        }
+
+        .card ul {
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        footer {
+            background-color: #173b65;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+
 </head>
 
 <body>
 
-    <h1>Welcome to CloudDesk ITSM</h1>
+    <header>
+        <h1>CloudDesk ITSM</h1>
+        <p>IT Support Made Simple!</p>
+    </header>
 
-    <p>IT Support Made Simple!</p>
-
-    <p>Manage service requests, assets, and workflows
-    in one simple platform.</p>
-
-    <a href="#pricing">Explore Plans</a>
-
-    <h2>Our Features</h2>
-
-    <h3>Request Management</h3>
-    <p>Organise and track IT service requests.</p>
-
-    <h3>Workflow Automation</h3>
-    <p>Automate repetitive IT tasks.</p>
-
-    <h3>IT Insights</h3>
-    <p>View reports and understand IT performance.</p>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#addons">Add-ons</a>
+        <a href="#account">My Account</a>
+    </nav>
 
 
-    <h2 id="pricing">Choose Your Plan</h2>
+    <div class="hero" id="home">
 
-    <h3>Starter Plan</h3>
+        <h1>Manage IT Support Easily</h1>
 
-    <p>$49/month</p>
-    <p>For small IT teams.</p>
-    <p>Basic request management and standard reports.</p>
+        <p>
+            Manage service requests, automate IT workflows,
+            and improve your team's productivity with CloudDesk.
+        </p>
 
-    <a href="javascript:void(0)"
-       data-cb-type="checkout"
-       data-cb-item-0="Starter-USD-Monthly"
-       data-cb-item-0-quantity="1">
-       Subscribe Now
-    </a>
+        <a href="#pricing" class="button">Explore Plans</a>
+
+    </div>
 
 
-    <h3>Growth Plan</h3>
+    <div class="section" id="features">
 
-    <p>$149/month</p>
-    <p>For growing IT teams.</p>
-    <p>Workflow automation and advanced reports.</p>
+        <h2>Our Features</h2>
 
-    <a href="javascript:void(0)"
-       data-cb-type="checkout"
-       data-cb-item-0="Growth-USD-Monthly"
-       data-cb-item-0-quantity="1">
-       Subscribe Now
-    </a>
+        <div class="container">
 
+            <div class="card">
+                <h3>Request Management</h3>
+                <p>
+                    Organise and track IT service requests
+                    in one place.
+                </p>
+            </div>
 
-    <h3>Enterprise Plan</h3>
+            <div class="card">
+                <h3>Workflow Automation</h3>
+                <p>
+                    Automate repetitive tasks and
+                    save your team's time.
+                </p>
+            </div>
 
-    <p>$399/month</p>
-    <p>For large organisations.</p>
-    <p>Advanced automation and premium support.</p>
+            <div class="card">
+                <h3>IT Insights</h3>
+                <p>
+                    View reports and understand
+                    your IT team's performance.
+                </p>
+            </div>
 
-    <a href="javascript:void(0)"
-       data-cb-type="checkout"
-       data-cb-item-0="Enterprise-USD-Monthly"
-       data-cb-item-0-quantity="1">
-       Subscribe Now
-    </a>
+        </div>
 
-
-    <h2>Optional Add-ons</h2>
-
-    <h3>Advanced Analytics</h3>
-    <p>$30/month</p>
-
-    <h3>AI Automation Pack</h3>
-    <p>$50/month</p>
-
-    <h3>Premium Support</h3>
-    <p>$40/month</p>
+    </div>
 
 
-    <h2>Manage Your Subscription</h2>
+    <div class="section" id="pricing">
 
-    <a href="javascript:void(0)" data-cb-type="portal">
-        Manage My Account
-    </a>
+        <h2>Choose Your Plan</h2>
+
+        <div class="container">
+
+            <div class="card">
+
+                <h3>Starter Plan</h3>
+
+                <p class="price">$49/month</p>
+
+                <p>Perfect for small IT teams.</p>
+
+                <ul>
+                    <li>Request Management</li>
+                    <li>Basic Reports</li>
+                    <li>Email Support</li>
+                </ul>
+
+                <a href="javascript:void(0)"
+                   class="button"
+                   data-cb-type="checkout"
+                   data-cb-item-0="Starter-USD-Monthly"
+                   data-cb-item-0-quantity="1">
+                    Subscribe Now
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Growth Plan</h3>
+
+                <p class="price">$149/month</p>
+
+                <p>Perfect for growing IT teams.</p>
+
+                <ul>
+                    <li>Everything in Starter</li>
+                    <li>Workflow Automation</li>
+                    <li>Advanced Reports</li>
+                </ul>
+
+                <a href="javascript:void(0)"
+                   class="button"
+                   data-cb-type="checkout"
+                   data-cb-item-0="Growth-USD-Monthly"
+                   data-cb-item-0-quantity="1">
+                    Subscribe Now
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Enterprise Plan</h3>
+
+                <p class="price">$399/month</p>
+
+                <p>Designed for large organisations.</p>
+
+                <ul>
+                    <li>Everything in Growth</li>
+                    <li>Advanced Automation</li>
+                    <li>Premium Support</li>
+                </ul>
+
+                <a href="javascript:void(0)"
+                   class="button"
+                   data-cb-type="checkout"
+                   data-cb-item-0="Enterprise-USD-Monthly"
+                   data-cb-item-0-quantity="1">
+                    Subscribe Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="section" id="addons">
+
+        <h2>Optional Add-ons</h2>
+
+        <div class="container">
+
+            <div class="card">
+                <h3>Advanced Analytics</h3>
+                <p class="price">$30/month</p>
+                <p>Get more insights from your IT data.</p>
+            </div>
+
+            <div class="card">
+                <h3>AI Automation Pack</h3>
+                <p class="price">$50/month</p>
+                <p>Automate repetitive tasks using AI.</p>
+            </div>
+
+            <div class="card">
+                <h3>Premium Support</h3>
+                <p class="price">$40/month</p>
+                <p>Get additional support for your team.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="section" id="account">
+
+        <h2>Manage Your Subscription</h2>
+
+        <p>View your subscription and manage your account.</p>
+
+        <a href="javascript:void(0)"
+           class="button"
+           data-cb-type="portal">
+            Manage My Account
+        </a>
+
+    </div>
 
 
     <footer>
         <p>Copyright 2026 CloudDesk ITSM</p>
+        <p>Making IT Support Simple and Efficient</p>
     </footer>
 
 </body>
+
 </html>
