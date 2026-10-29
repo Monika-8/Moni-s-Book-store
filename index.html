@@ -1,107 +1,138 @@
+<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>CloudDesk</title>
-    <!-- Chargebee.js: replace YOUR-SITE-test with your own Chargebee site name -->
-    <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="YOUR-SITE-test"></script>
-    <script charset="utf-8" src="https://js.chargebee.com/assets/cbjs-2026.10.23-09.21/v2/620-eb691dd4a9705efbd2a6.js"></script>
+
+    <script src="https://js.chargebee.com/v2/chargebee.js"
+        data-cb-site="YOUR-SITE-test"></script>
+
     <style>
-      body {
-        font-family: Arial;
-        margin: 0;
-      }
+        body {
+            background-image: url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: Arial;
+            margin: 0;
+        }
 
-      h1 {
-        background-color: darkblue;
-        color: white;
-        margin: 0;
-        padding: 20px;
-        text-align: center;
-      }
+        h1 {
+            background-color: darkblue;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
 
-      .box {
-        padding: 20px;
-        text-align: center;
-      }
+        nav {
+            background-color: navy;
+            padding: 15px;
+            text-align: center;
+        }
 
-      .plan {
-        border: 1px solid gray;
-        width: 200px;
-        display: inline-block;
-        margin: 10px;
-        padding: 15px;
-      }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 20px;
+        }
 
-      a.btn {
-        background-color: darkblue;
-        color: white;
-        padding: 8px 14px;
-        text-decoration: none;
-      }
+        .box {
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.85);
+        }
 
-      p.footer {
-        background-color: lightgray;
-        text-align: center;
-        padding: 10px;
-        margin: 0;
-      }
+        .plan {
+            background-color: white;
+            border: 1px solid gray;
+            width: 200px;
+            display: inline-block;
+            margin: 10px;
+            padding: 15px;
+        }
+
+        a.btn {
+            display: inline-block;
+            background-color: darkblue;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+        }
+
+        .footer {
+            background-color: lightgray;
+            text-align: center;
+            padding: 10px;
+            margin: 0;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
+
     <h1>CloudDesk</h1>
-    <div class="box">
-      <h2>Simple customer support software</h2>
-      <p>Manage all your customer tickets in one place.</p>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#support">Support</a>
+    </nav>
+
+    <div class="box" id="home">
+        <h2>Simple Customer Support Software</h2>
+        <p>Manage all your customer tickets in one place.</p>
+        <p>Make your team's work easier with CloudDesk.</p>
     </div>
-    <div class="box">
-      <h2>Choose a Plan</h2>
-      <div class="plan">
-        <h3>Go</h3>
-        <p>$99 / month</p>
-        <p>For small teams</p>
-        <a href="javascript:void(0)" class="btn" data-cb-type="checkout" data-cb-item-0="go-plan-usd-monthly" data-cb-item-0-quantity="1">Subscribe</a>
-      </div>
-      <div class="plan">
-        <h3>Rise</h3>
-        <p>$299 / month</p>
-        <p>For growing teams</p>
-        <a href="javascript:void(0)" class="btn" data-cb-type="checkout" data-cb-item-0="rise-plan-usd-monthly" data-cb-item-0-quantity="1">Subscribe</a>
-      </div>
-      <div class="plan">
-        <h3>Scale</h3>
-        <p>$599 / month</p>
-        <p>For large teams</p>
-        <a href="javascript:void(0)" class="btn" data-cb-type="checkout" data-cb-item-0="scale-plan-usd-monthly" data-cb-item-0-quantity="1">Subscribe</a>
-      </div>
-    </div>
-    <div class="box">
-      <h2>Contact Us</h2>
-      <p>Email: support@clouddesk.example</p>
-    </div>
-    <p class="footer">2026 CloudDesk. All rights reserved.</p>
-    <div id="cb-container" style="position: fixed; inset: 0px; z-index: 2147483647; display: none; overflow-y: hidden;">
-      <div id="cb-loader" style="z-index: 99999; visibility: hidden; transition: 0.5s; background: rgb(244, 245, 249); position: absolute; left: 0px; right: 0px; box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 9px 0px, rgba(0, 0, 0, 0.15) 0px 20px 30px 1px, rgba(0, 0, 0, 0.15) 0px 40px 40px 1px;">
-        <div style="overflow: hidden;">
-          <div id="cb-loader-header" style="padding: 12px 40px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px; text-align: center; min-height: 64px; box-sizing: border-box;">
-            <div style="min-height: 46px; display: flex; align-items: center; margin-top: 1px;">
-              <img id="cb-header-logo" style="max-height: 40px; max-width: 240px; vertical-align: middle; width: auto; margin: 3px auto;">
-            </div>
-          </div>
-          <div id="cb-loading-bar" style="height: 2px; background: rgb(72, 231, 154); transition-duration: 0.5s; transition-timing-function: ease-in-out; visibility: hidden;"></div>
-          <div style="padding: 24px 36px;">
-            <div class="cb-placeholder" id="cb-placeholder">
-              <div class="wavering" style="height: 20px; width: 100px; background: linear-gradient(to right, rgb(238, 238, 238) 8%, rgb(221, 221, 221) 18%, rgb(238, 238, 238) 33%) 0% 0% / 800px 104px; margin-bottom: 10px;"></div>
-              <div class="wavering" style="height: 40px; width: 200px; background: linear-gradient(to right, rgb(238, 238, 238) 8%, rgb(221, 221, 221) 18%, rgb(238, 238, 238) 33%) 0% 0% / 800px 104px; margin-bottom: 10px;"></div>
-              <div class="wavering" style="height: 10px; width: 150px; background: linear-gradient(to right, rgb(238, 238, 238) 8%, rgb(221, 221, 221) 18%, rgb(238, 238, 238) 33%) 0% 0% / 800px 104px; margin-bottom: 10px;"></div>
-              <div class="wavering" style="height: 10px; width: 150px; background: linear-gradient(to right, rgb(238, 238, 238) 8%, rgb(221, 221, 221) 18%, rgb(238, 238, 238) 33%) 0% 0% / 800px 104px; margin-bottom: 10px;"></div>
-              <div class="wavering" style="height: 10px; width: 150px; background: linear-gradient(to right, rgb(238, 238, 238) 8%, rgb(221, 221, 221) 18%, rgb(238, 238, 238) 33%) 0% 0% / 800px 104px; margin-bottom: 10px;"></div>
-            </div>
-            <div id="cb-error" style="font-size: 18px; line-height: 27px; color: rgb(248, 48, 48); text-align: center; display: none;"></div>
-          </div>
-          <div id="cb-modal-close" style="position: absolute; background: rgb(57, 57, 65); height: 24px; width: 24px; border-radius: 50%; right: -12px; top: -12px; font-size: 20px; color: rgba(255, 255, 255, 0.7); text-align: center; cursor: pointer; display: table; font-weight: 400; line-height: 24px;">×</div>
+
+    <div class="box" id="pricing">
+        <h2>Choose a Plan</h2>
+
+        <div class="plan">
+            <h3>Go</h3>
+            <p>$99 / month</p>
+            <p>For small teams</p>
+
+            <a href="javascript:void(0)" class="btn"
+               data-cb-type="checkout"
+               data-cb-item-0="go-plan-usd-monthly"
+               data-cb-item-0-quantity="1">
+                Subscribe
+            </a>
         </div>
-      </div>
-      <iframe id="cb-frame" style="width: 100%; height: 100%; z-index: 999999; visibility: hidden; position: relative; border: 0px;"></iframe>
-      <iframe id="cb-master-frame" name="cb-master-frame" src="https://js.chargebee.com/assets/cbjs-2026.10.23-09.21/v2/master.html?site=YOUR-SITE-test&amp;env=production#" style="margin: 0px; padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; overflow: hidden; display: block; min-width: 100%; width: 1px; height: 1.2em;"></iframe>
+
+        <div class="plan">
+            <h3>Rise</h3>
+            <p>$299 / month</p>
+            <p>For growing teams</p>
+
+            <a href="javascript:void(0)" class="btn"
+               data-cb-type="checkout"
+               data-cb-item-0="rise-plan-usd-monthly"
+               data-cb-item-0-quantity="1">
+                Subscribe
+            </a>
+        </div>
+
+        <div class="plan">
+            <h3>Scale</h3>
+            <p>$599 / month</p>
+            <p>For large teams</p>
+
+            <a href="javascript:void(0)" class="btn"
+               data-cb-type="checkout"
+               data-cb-item-0="scale-plan-usd-monthly"
+               data-cb-item-0-quantity="1">
+                Subscribe
+            </a>
+        </div>
     </div>
-  </body>
+
+    <div class="box" id="support">
+        <h2>Contact Support</h2>
+        <p>Email: support@clouddesk.example</p>
+        <p>We are here to help you!</p>
+    </div>
+
+    <p class="footer">2026 CloudDesk. All rights reserved.</p>
+
+</body>
 </html>
