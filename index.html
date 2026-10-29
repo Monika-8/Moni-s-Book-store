@@ -1,683 +1,102 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloudDesk | IT Support Simplified</title>
+    <title>CloudDesk ITSM</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f8fbff;
-            color: #26354a;
-            line-height: 1.6;
-        }
-
-        header {
-            background: white;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #2563a6;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #43536a;
-            margin-left: 22px;
-        }
-
-        nav a:hover {
-            color: #2563a6;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 75px 20px;
-            background: #eaf3ff;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 17px;
-            color: #53647a;
-            margin-bottom: 25px;
-        }
-
-        section {
-            padding: 55px 8%;
-            text-align: center;
-        }
-
-        section h2 {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
-
-        .description {
-            color: #64748b;
-            margin-bottom: 30px;
-        }
-
-        .button {
-            display: inline-block;
-            background: #2563a6;
-            color: white;
-            border: none;
-            padding: 12px 22px;
-            border-radius: 6px;
-            text-decoration: none;
-            cursor: pointer;
-            font-size: 15px;
-            margin-top: 15px;
-        }
-
-        .button:hover {
-            background: #174b82;
-        }
-
-        .plans,
-        .addons {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 24px;
-            margin-top: 30px;
-        }
-
-        .plan-card,
-        .addon-card {
-            background: white;
-            border: 1px solid #dce6f2;
-            border-radius: 12px;
-            padding: 28px 22px;
-            box-shadow: 0 4px 12px rgba(25, 55, 90, 0.04);
-        }
-
-        .plan-card h3,
-        .addon-card h3 {
-            font-size: 21px;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-size: 30px;
-            font-weight: bold;
-            color: #2563a6;
-            margin: 15px 0;
-        }
-
-        .price span {
-            font-size: 14px;
-            font-weight: normal;
-            color: #64748b;
-        }
-
-        .plan-card ul {
-            list-style: none;
-            margin-top: 18px;
-        }
-
-        .plan-card li {
-            margin: 8px 0;
-            color: #53647a;
-        }
-
-        .featured {
-            border: 2px solid #2563a6;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #eaf3ff;
-            color: #2563a6;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            margin-bottom: 12px;
-        }
-
-        .addon-section {
-            background: #eaf3ff;
-        }
-
-        .addon-icon {
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        footer {
-            background: #1e3552;
-            color: white;
-            text-align: center;
-            padding: 22px;
-        }
-
-        /* Popup overlay */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 30, 50, 0.6);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            z-index: 1000;
-        }
-
-        .modal-overlay.show {
-            display: flex;
-        }
-
-        /* Popup window */
-        .modal {
-            position: relative;
-            width: 100%;
-            max-width: 420px;
-            background: white;
-            border-radius: 14px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .modal h2 {
-            font-size: 25px;
-            margin-bottom: 12px;
-        }
-
-        .modal p {
-            color: #64748b;
-            margin: 10px 0;
-        }
-
-        .modal-price {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2563a6;
-            margin: 18px 0;
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .modal-buttons button {
-            flex: 1;
-            margin-top: 0;
-        }
-
-        .no-button {
-            background: white;
-            color: #2563a6;
-            border: 1px solid #2563a6;
-        }
-
-        .no-button:hover {
-            background: #f0f6ff;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 8px;
-            right: 14px;
-            background: none;
-            border: none;
-            font-size: 25px;
-            color: #64748b;
-            cursor: pointer;
-        }
-
-        .summary {
-            display: none;
-            text-align: left;
-            background: #f8fbff;
-            border-radius: 8px;
-            padding: 16px;
-            margin-top: 20px;
-        }
-
-        .summary.show {
-            display: block;
-        }
-
-        .summary p {
-            margin: 8px 0;
-        }
-
-        .summary .total {
-            border-top: 1px solid #dce6f2;
-            padding-top: 12px;
-            color: #2563a6;
-            font-weight: bold;
-            font-size: 19px;
-        }
-
-        @media (max-width: 700px) {
-            header {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            nav a {
-                margin: 0 8px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .plans,
-            .addons {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <script src="https://js.chargebee.com/v2/chargebee.js"
+    data-cb-site="YOUR_TEST_SITE"></script>
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">☁ ServiceDesk</div>
+    <h1>Welcome to CloudDesk ITSM</h1>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#features">Features</a>
-            <a href="#pricing">Pricing</a>
-        </nav>
-    </header>
+    <p>IT Support Made Simple!</p>
 
-    <!-- Hero -->
-    <section class="hero" id="home">
-        <h1>IT Support, Simplified.</h1>
+    <p>Manage service requests, assets, and workflows
+    in one simple platform.</p>
 
-        <p>
-            Manage service requests, assets, and workflows
-            in one simple platform.
-        </p>
+    <a href="#pricing">Explore Plans</a>
 
-        <a href="#pricing" class="button">Explore Plans</a>
-    </section>
+    <h2>Our Features</h2>
 
-    <!-- Features -->
-    <section id="features">
-        <h2>Everything Your IT Team Needs</h2>
+    <h3>Request Management</h3>
+    <p>Organise and track IT service requests.</p>
 
-        <p class="description">
-            Simplify daily operations and help your team work smarter.
-        </p>
+    <h3>Workflow Automation</h3>
+    <p>Automate repetitive IT tasks.</p>
 
-        <div class="addons">
-            <div class="addon-card">
-                <div class="addon-icon">🎫</div>
-                <h3>Request Management</h3>
-                <p>Organise and track IT service requests.</p>
-            </div>
+    <h3>IT Insights</h3>
+    <p>View reports and understand IT performance.</p>
 
-            <div class="addon-card">
-                <div class="addon-icon">⚙️</div>
-                <h3>Workflow Automation</h3>
-                <p>Reduce repetitive tasks with automation.</p>
-            </div>
 
-            <div class="addon-card">
-                <div class="addon-icon">📊</div>
-                <h3>IT Insights</h3>
-                <p>Understand performance with useful reports.</p>
-            </div>
-        </div>
-    </section>
+    <h2 id="pricing">Choose Your Plan</h2>
 
-    <!-- Pricing plans -->
-    <section id="pricing">
-        <h2>Choose Your Plan</h2>
+    <h3>Starter Plan</h3>
 
-        <p class="description">
-            Simple pricing for teams of every size.
-        </p>
+    <p>$49/month</p>
+    <p>For small IT teams.</p>
+    <p>Basic request management and standard reports.</p>
 
-        <div class="plans">
+    <a href="javascript:void(0)"
+       data-cb-type="checkout"
+       data-cb-item-0="Starter-USD-Monthly"
+       data-cb-item-0-quantity="1">
+       Subscribe Now
+    </a>
 
-            <!-- Starter -->
-            <div class="plan-card">
-                <h3>Starter</h3>
 
-                <div class="price">
-                    $49<span>/month</span>
-                </div>
+    <h3>Growth Plan</h3>
 
-                <p>For small IT teams getting started.</p>
+    <p>$149/month</p>
+    <p>For growing IT teams.</p>
+    <p>Workflow automation and advanced reports.</p>
 
-                <ul>
-                    <li>✓ Up to 5 agents</li>
-                    <li>✓ Basic request management</li>
-                    <li>✓ Standard reports</li>
-                    <li>✓ Email support</li>
-                </ul>
+    <a href="javascript:void(0)"
+       data-cb-type="checkout"
+       data-cb-item-0="Growth-USD-Monthly"
+       data-cb-item-0-quantity="1">
+       Subscribe Now
+    </a>
 
-                <button class="button" onclick="selectPlan('Starter')">
-                    Choose Starter
-                </button>
-            </div>
 
-            <!-- Growth -->
-            <div class="plan-card featured">
-                <span class="badge">POPULAR</span>
+    <h3>Enterprise Plan</h3>
 
-                <h3>Growth</h3>
+    <p>$399/month</p>
+    <p>For large organisations.</p>
+    <p>Advanced automation and premium support.</p>
 
-                <div class="price">
-                    $149<span>/month</span>
-                </div>
+    <a href="javascript:void(0)"
+       data-cb-type="checkout"
+       data-cb-item-0="Enterprise-USD-Monthly"
+       data-cb-item-0-quantity="1">
+       Subscribe Now
+    </a>
 
-                <p>For growing IT teams.</p>
 
-                <ul>
-                    <li>✓ Up to 20 agents</li>
-                    <li>✓ Advanced request management</li>
-                    <li>✓ Workflow automation</li>
-                    <li>✓ Advanced reports</li>
-                    <li>✓ Priority support</li>
-                </ul>
+    <h2>Optional Add-ons</h2>
 
-                <button class="button" onclick="selectPlan('Growth')">
-                    Choose Growth
-                </button>
-            </div>
+    <h3>Advanced Analytics</h3>
+    <p>$30/month</p>
 
-            <!-- Enterprise -->
-            <div class="plan-card">
-                <h3>Enterprise</h3>
+    <h3>AI Automation Pack</h3>
+    <p>$50/month</p>
 
-                <div class="price">
-                    $399<span>/month</span>
-                </div>
+    <h3>Premium Support</h3>
+    <p>$40/month</p>
 
-                <p>For larger organisations.</p>
 
-                <ul>
-                    <li>✓ Unlimited agents</li>
-                    <li>✓ Advanced automation</li>
-                    <li>✓ Custom reports</li>
-                    <li>✓ Premium support</li>
-                </ul>
+    <h2>Manage Your Subscription</h2>
 
-                <button class="button" onclick="selectPlan('Enterprise')">
-                    Choose Enterprise
-                </button>
-            </div>
+    <a href="javascript:void(0)" data-cb-type="portal">
+        Manage My Account
+    </a>
 
-        </div>
-    </section>
 
-    <!-- Add-ons -->
-    <section class="addon-section" id="addons">
-        <h2>Make Your Plan More Powerful</h2>
-
-        <p class="description">
-            Choose optional features to suit your business needs.
-        </p>
-
-        <div class="addons">
-
-            <div class="addon-card">
-                <div class="addon-icon">📈</div>
-                <h3>Advanced Analytics</h3>
-                <div class="price">+$30<span>/month</span></div>
-                <p>Get deeper insights into IT performance.</p>
-            </div>
-
-            <div class="addon-card">
-                <div class="addon-icon">🤖</div>
-                <h3>AI Automation Pack</h3>
-                <div class="price">+$50<span>/month</span></div>
-                <p>Automate repetitive IT workflows.</p>
-            </div>
-
-            <div class="addon-card">
-                <div class="addon-icon">🎧</div>
-                <h3>Premium Support</h3>
-                <div class="price">+$40<span>/month</span></div>
-                <p>Get additional support for your team.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Plan selection popup -->
-    <div class="modal-overlay" id="planModal">
-        <div
-            class="modal"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modalTitle"
-        >
-            <button
-                class="close-button"
-                onclick="closeModal()"
-                aria-label="Close popup"
-            >&times;</button>
-
-            <h2 id="modalTitle">Customise Your Plan</h2>
-
-            <p id="selectedPlanText"></p>
-
-            <p>Would you like to add optional features?</p>
-
-            <div class="modal-price" id="selectedPrice"></div>
-
-            <div id="addonChoices" style="text-align: left; margin-top: 15px;">
-                <label>
-                    <input type="checkbox" id="analytics">
-                    Advanced Analytics (+$30/month)
-                </label>
-                <br>
-
-                <label>
-                    <input type="checkbox" id="aiAutomation">
-                    AI Automation Pack (+$50/month)
-                </label>
-                <br>
-
-                <label>
-                    <input type="checkbox" id="premiumSupport">
-                    Premium Support (+$40/month)
-                </label>
-            </div>
-
-            <div class="modal-buttons" id="choiceButtons">
-                <button class="button no-button" onclick="continueWithoutAddons()">
-                    No Add-ons
-                </button>
-
-                <button class="button" onclick="continueWithAddons()">
-                    Yes, Continue
-                </button>
-            </div>
-
-            <div class="summary" id="summary">
-                <h3>Your Selection</h3>
-                <p id="summaryPlan"></p>
-                <p id="summaryAddons"></p>
-                <p class="total" id="summaryTotal"></p>
-
-                <button class="button" onclick="closeModal()">
-                    Done
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
     <footer>
-        <p>© 2026 CloudDesk. All rights reserved.</p>
+        <p>Copyright 2026 CloudDesk ITSM</p>
     </footer>
-
-    <script>
-        const plans = {
-            Starter: {
-                price: 49
-            },
-            Growth: {
-                price: 149
-            },
-            Enterprise: {
-                price: 399
-            }
-        };
-
-        const addons = {
-            analytics: {
-                name: "Advanced Analytics",
-                price: 30
-            },
-            aiAutomation: {
-                name: "AI Automation Pack",
-                price: 50
-            },
-            premiumSupport: {
-                name: "Premium Support",
-                price: 40
-            }
-        };
-
-        let selectedPlan = "";
-
-        function selectPlan(planName) {
-            selectedPlan = planName;
-
-            document.getElementById("selectedPlanText").textContent =
-                "You selected the " + planName + " plan.";
-
-            document.getElementById("selectedPrice").textContent =
-                "$" + plans[planName].price + "/month";
-
-            // Clear previous add-on selections.
-            document.getElementById("analytics").checked = false;
-            document.getElementById("aiAutomation").checked = false;
-            document.getElementById("premiumSupport").checked = false;
-
-            // Reset the popup.
-            document.getElementById("modalTitle").textContent =
-                "Customise Your Plan";
-
-            document.getElementById("addonChoices").style.display = "block";
-            document.getElementById("choiceButtons").style.display = "flex";
-            document.getElementById("selectedPrice").style.display = "block";
-            document.getElementById("selectedPlanText").style.display = "block";
-            document.getElementById("summary").classList.remove("show");
-
-            document.getElementById("planModal").classList.add("show");
-            document.body.style.overflow = "hidden";
-        }
-
-        function calculateTotal() {
-            let total = plans[selectedPlan].price;
-            const selectedAddons = [];
-
-            for (const key in addons) {
-                const checkbox = document.getElementById(key);
-
-                if (checkbox.checked) {
-                    total += addons[key].price;
-                    selectedAddons.push(addons[key].name);
-                }
-            }
-
-            return {
-                total: total,
-                selectedAddons: selectedAddons
-            };
-        }
-
-        function continueWithoutAddons() {
-            document.getElementById("analytics").checked = false;
-            document.getElementById("aiAutomation").checked = false;
-            document.getElementById("premiumSupport").checked = false;
-
-            showSummary();
-        }
-
-        function continueWithAddons() {
-            showSummary();
-        }
-
-        function showSummary() {
-            const result = calculateTotal();
-
-            document.getElementById("summaryPlan").textContent =
-                "Plan: " + selectedPlan +
-                " — $" + plans[selectedPlan].price + "/month";
-
-            document.getElementById("summaryAddons").textContent =
-                "Add-ons: " +
-                (result.selectedAddons.length > 0
-                    ? result.selectedAddons.join(", ")
-                    : "None");
-
-            document.getElementById("summaryTotal").textContent =
-                "Monthly total: $" + result.total;
-
-            document.getElementById("modalTitle").textContent =
-                "Your Plan Summary";
-
-            document.getElementById("addonChoices").style.display = "none";
-            document.getElementById("choiceButtons").style.display = "none";
-            document.getElementById("selectedPrice").style.display = "none";
-            document.getElementById("selectedPlanText").style.display = "none";
-
-            document.getElementById("summary").classList.add("show");
-
-            console.log({
-                plan: selectedPlan,
-                basePrice: plans[selectedPlan].price,
-                addons: result.selectedAddons,
-                monthlyTotal: result.total
-            });
-        }
-
-        function closeModal() {
-            document.getElementById("planModal").classList.remove("show");
-            document.body.style.overflow = "";
-        }
-
-        // Close the popup when the customer clicks outside it.
-        document.getElementById("planModal").addEventListener(
-            "click",
-            function(event) {
-                if (event.target === this) {
-                    closeModal();
-                }
-            }
-        );
-
-        // Close the popup when Escape is pressed.
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "Escape") {
-                closeModal();
-            }
-        });
-    </script>
 
 </body>
 </html>
