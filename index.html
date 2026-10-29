@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>StreamFlix</title>
-    <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="chargebee-assessment2-test" ></script>
+    <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="chargebee-assessment2-test"></script>
 
     <style>
         body {
@@ -19,6 +20,7 @@
             color: white;
             margin: 0;
             padding: 20px;
+            text-align: center;
         }
 
         nav {
@@ -32,32 +34,45 @@
             text-decoration: none;
             margin: 20px;
         }
-        #pricing {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
 
-#pricing h2 {
-    width: 100%;
-}   
+        /* Make Home and Support backgrounds opaque */
+        .box {
+            background-color: white;
+            padding: 25px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        #pricing {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            background-color: white;
+            padding: 25px;
+            margin: 20px;
+        }
+
+        #pricing h2 {
+            width: 100%;
+            text-align: center;
+        }
 
         .plan {
-    background-color: white;
-    border: 1px solid gray;
-    width: 220px;
-    min-height: 260px;
-    box-sizing: border-box;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    vertical-align: top;
-    margin: 10px;
-    padding: 20px;
-    text-align: center;
-}
+            background-color: white;
+            border: 1px solid gray;
+            width: 220px;
+            min-height: 260px;
+            box-sizing: border-box;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            vertical-align: top;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+        }
 
         a.btn {
             display: inline-block;
@@ -87,7 +102,7 @@
     </nav>
 
     <div class="box" id="home">
-        <h2>Unlimited Entertainment with Streamflix</h2> 
+        <h2>Unlimited Entertainment with Streamflix</h2>
         <p>Enjoy your favorite movies and shows anytime, anywhere.</p>
         <p>Stream in stunning 4K quality and watch on multiple devices with our flexible subscription plans.</p>
     </div>
@@ -99,57 +114,58 @@
             <h3>Kids only</h3>
             <p>$149 / month</p>
             <p>1 device only</p>
-            
-            <a href="javascript:void(0)" class="btn" data-cb-type="checkout" data-cb-item-0="streamflix-kids-USD-Monthly" >Subscribe</a>
 
+            <a href="javascript:void(0)" class="btn"
+               data-cb-type="checkout"
+               data-cb-item-0="streamflix-kids-USD-Monthly">Subscribe</a>
         </div>
 
         <div class="plan">
             <h3>Gold</h3>
             <p>$299 / month</p>
-            <p>3 Devices,4K streaming</p>
+            <p>3 Devices, 4K streaming</p>
 
-            <a href="javascript:void(0)" class="btn" data-cb-type="checkout" data-cb-item-0="Streamflix-gold-USD-Monthly" >Subscribe</a>
-            
+            <a href="javascript:void(0)" class="btn"
+               data-cb-type="checkout"
+               data-cb-item-0="Streamflix-gold-USD-Monthly">Subscribe</a>
         </div>
 
         <div class="plan">
             <h3>Platinum</h3>
             <p>$599 / month</p>
             <p>2 MONTHS Free</p>
-            <p>5 devices,4K Streaming</p>
+            <p>5 devices, 4K Streaming</p>
 
-            <a href="javascript:void(0)" class="btn" data-cb-type="checkout" data-cb-item-0="Streamflix-Platinum-USD-Monthly" data-cb-item-0-quantity="1" >Subscribe</a>
+            <a href="javascript:void(0)" class="btn"
+               data-cb-type="checkout"
+               data-cb-item-0="Streamflix-Platinum-USD-Monthly"
+               data-cb-item-0-quantity="1">Subscribe</a>
         </div>
     </div>
 
     <div class="box" id="support">
         <h2>Contact Support</h2>
-        <p>Email: support@clouddesk.example</p>
+        <p>Email: support@Streamflix.example</p>
         <p>We are here to help you!</p>
     </div>
 
-    <p class="footer">2026 CloudDesk. All rights reserved.</p>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+    <p class="footer">2026 Streamflix. All rights reserved.</p>
 
-    // Get the Chargebee instance
-    var cbInstance = Chargebee.getInstance();
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var cbInstance = Chargebee.getInstance();
 
-    // Find the Subscribe button
-    var planElement = document.querySelector(
-        "[data-cb-type='checkout']"
-    );
+            var planElement = document.querySelector(
+                "[data-cb-type='checkout']"
+            );
 
-    // Get the selected plan's checkout product
-    var product = cbInstance.getProduct(planElement);
+            var product = cbInstance.getProduct(planElement);
 
-    // Add the reseller ID to the subscription custom field
-    product.data["cf_Reseller"] = "RES001";
+            product.data["cf_Reseller"] = "RES001";
 
-    console.log("Reseller ID:", product.data["cf_Reseller"]);
+            console.log("Reseller ID:", product.data["cf_Reseller"]);
+        });
+    </script>
 
-});
-</script>
 </body>
 </html>
