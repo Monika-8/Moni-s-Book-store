@@ -130,6 +130,26 @@
     </div>
 
     <p class="footer">2026 CloudDesk. All rights reserved.</p>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    // Get the Chargebee instance
+    var cbInstance = Chargebee.getInstance();
+
+    // Find the Subscribe button
+    var planElement = document.querySelector(
+        "[data-cb-type='checkout']"
+    );
+
+    // Get the selected plan's checkout product
+    var product = cbInstance.getProduct(planElement);
+
+    // Add the reseller ID to the subscription custom field
+    product.data["cf_Reseller"] = "RES001";
+
+    console.log("Reseller ID:", product.data["cf_Reseller"]);
+
+});
+</script>
 </body>
 </html>
